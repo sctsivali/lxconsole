@@ -1,8 +1,8 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="icon" type="image/png" href="{{ url_for('static', filename='assets/img/logo-light.svg') }}">
-  <title>lxconsole</title>
+  <link rel="icon" type="image/png" href="{{ url_for('static', filename=logo_light) }}">
+  <title>{{ brand_name }}</title>
 
   <!-- Google Font: Source Sans Pro -->
   <link rel="stylesheet" href="{{ url_for('static', filename='css/fonts/source_sans_pro.css') }}">
@@ -37,6 +37,13 @@
   <link rel="stylesheet" href="{{ url_for('static', filename='dist/css/adminlte.min.css') }}">
 
   <!-- LXD Dashboard style -->
-  <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}"> 
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+
+  <style>
+    :root {
+      --primary: {{ primary_color }};
+      --bs-primary: {{ primary_color }};
+    }
+  </style>
 
 </head>

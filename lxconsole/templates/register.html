@@ -4,8 +4,8 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="icon" type="image/png" href="{{ url_for('static', filename='assets/img/logo-light.svg') }}">
-    <title>lxconsole</title>
+    <link rel="icon" type="image/png" href="{{ url_for('static', filename=logo_light) }}">
+    <title>{{ brand_name }}</title>
 
     <!-- Google Font: Source Sans Pro -->
     <link rel="stylesheet" href="{{ url_for('static', filename='css/fonts/source_sans_pro.css') }}">
@@ -24,8 +24,12 @@
 
     
     <style>
+        :root {
+          --primary: {{ primary_color }};
+          --bs-primary: {{ primary_color }};
+        }
         body {
-          background-image: url("{{ url_for('static', filename='assets/img/logo-bg.svg') }}") !important;
+          background-image: url("{{ url_for('static', filename=logo_bg) }}") !important;
           background-position: center center !important;
           background-size: 100% auto !important;
           background-repeat: no-repeat;
@@ -53,15 +57,15 @@
 
                 <div class="pt-5">
                   <div class="text-center">
-                    <img src="{{ url_for('static', filename='assets/img/logo-light.svg') }}" width="50px" style="vertical-align: bottom !important;">
-                    <span class="h1"><strong>lxconsole</strong></span>
+                    <img src="{{ url_for('static', filename=logo_light) }}" width="50px" style="vertical-align: bottom !important;">
+                    <span class="h1"><strong>{{ brand_name }}</strong></span>
                   </div>
                 </div>
 
                 <div class="pt-5">
                   <div class="pl-4">
                     <p class="h5">An open source management console for Incus and LXD servers and clusters.</p>
-                    <p class="h5 pt-3">For instructions on using lxconsole, visit <a href="https://lxconsole.com" target="_blank">https://lxconsole.com</a>.</p>
+                    <p class="h5 pt-3">For instructions on using {{ brand_name }}, visit <a href="https://lxconsole.com" target="_blank">https://lxconsole.com</a>.</p>
                   </div>
                 </div>
                   
