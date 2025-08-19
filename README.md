@@ -33,8 +33,12 @@ Use the following instructions to setup this software on a linux server:
 Instructions on setting up lxconsole as a docker image.
 1. Build the docker image (sudo docker build --no-cache -t penninglabs/lxconsole:v0.0.0 .)
 2. Run the docker container (sudo docker run -p 5000:5000 --name lxconsole -d penninglabs/lxconsole:v0.0.0)
-3. Additionally the flask session secret key can be set using the environment variable LXCONSOLE_SECRET_KEY. 
-4. Mounted volumes of interest for persistence include the certs (lxconsole client.key and client.crt) and instance (db.sqlite3 database) directories:
+3. Additionally the flask session secret key can be set using the environment variable LXCONSOLE_SECRET_KEY.
+4. Branding can be customized through environment variables:
+   - `LXCONSOLE_BRAND_NAME` sets the displayed application name.
+   - `LXCONSOLE_LOGO_LIGHT`, `LXCONSOLE_LOGO_DARK` and `LXCONSOLE_LOGO_BG` define paths (relative to `static/`) for the light, dark and background logos.
+   - `LXCONSOLE_PRIMARY_COLOR` overrides the primary UI color (hex value).
+5. Mounted volumes of interest for persistence include the certs (lxconsole client.key and client.crt) and instance (db.sqlite3 database) directories:
   - /opt/lxconsole/certs
   - /opt/lxconsole/instance
 

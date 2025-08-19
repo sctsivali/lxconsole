@@ -25,6 +25,25 @@ login_manager = LoginManager(app)
 login_manager.login_view = 'login'
 login_manager.login_message_category = 'info'
 
+# Branding / theming configuration with environment variable overrides
+app.config['BRAND_NAME'] = os.environ.get('LXCONSOLE_BRAND_NAME', 'lxconsole')
+app.config['LOGO_LIGHT'] = os.environ.get('LXCONSOLE_LOGO_LIGHT', 'assets/img/logo-light.svg')
+app.config['LOGO_DARK'] = os.environ.get('LXCONSOLE_LOGO_DARK', 'assets/img/logo-dark.svg')
+app.config['LOGO_BG'] = os.environ.get('LXCONSOLE_LOGO_BG', 'assets/img/logo-bg.svg')
+app.config['PRIMARY_COLOR'] = os.environ.get('LXCONSOLE_PRIMARY_COLOR', '#007bff')
+
+
+@app.context_processor
+def inject_branding():
+    """Expose branding variables to all templates."""
+    return {
+        'brand_name': app.config['BRAND_NAME'],
+        'logo_light': app.config['LOGO_LIGHT'],
+        'logo_dark': app.config['LOGO_DARK'],
+        'logo_bg': app.config['LOGO_BG'],
+        'primary_color': app.config['PRIMARY_COLOR'],
+    }
+
 #Put below app declaration to prevent circular import
 from lxconsole import routes
 
